@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Estrategias para Ampliar tu Alcance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        h1, h2 {
+            color: #00344B;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #e1f5fe;
+            border: 1px solid #81d4fa;
+            border-radius: 5px;
+            color: #0277bd;
+            font-weight: bold;
+        }
+        .cta-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .cta-container p {
+            color: #00344B;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .cta-container a {
+            display: inline-block;
+            background-color: #00DC42;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 15px 25px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .cta-container a:hover {
+            background-color: #00c03a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Simulador de Estrategias para Ampliar tu Alcance</h1>
+        <p>Completa los datos para identificar las mejores estrategias para expandir tu alcance en redes sociales.</p>
+
+        <form id="reach-form">
+            <label for="platform">¿En qué plataforma deseas enfocar tu alcance?</label>
+            <input type="text" id="platform" placeholder="Ejemplo: Instagram, TikTok, LinkedIn">
+
+            <label for="goal">¿Cuál es tu objetivo principal (seguidores, interacción, ventas)?</label>
+            <input type="text" id="goal" placeholder="Ejemplo: Aumentar seguidores, generar leads">
+
+            <label for="budget">¿Cuál es tu presupuesto mensual para publicidad (en euros)?</label>
+            <input type="number" id="budget" placeholder="Ejemplo: 500">
+
+            <button type="button" onclick="generateReachStrategy()">Generar Estrategia</button>
+        </form>
+
+        <div id="result" class="result" style="display: none;"></div>
+
+        <div class="cta-container">
+            <p>¿CAMPO DE JUEGO O MINA DE ORO?</p>
+            <a href="https://klicana.work/ykEi0H" target="_blank">INSCRIBIRME A MISIÓN GESTOR REDES SOCIALES</a>
+        </div>
+    </div>
+
+    <script>
+        function generateReachStrategy() {
+            const platform = document.getElementById("platform").value.trim();
+            const goal = document.getElementById("goal").value.trim();
+            const budget = parseFloat(document.getElementById("budget").value);
+
+            if (!platform || !goal || isNaN(budget) || budget <= 0) {
+                document.getElementById("result").style.display = "block";
+                document.getElementById("result").textContent = "Por favor, completa todos los campos para generar tu estrategia.";
+                return;
+            }
+
+            const adsRecommendation = budget >= 500 ? 
+                "Inicia campañas de anuncios pagados con segmentación específica." :
+                "Enfócate en estrategias orgánicas como reels y colaboraciones.";
+
+            document.getElementById("result").style.display = "block";
+            document.getElementById("result").innerHTML = `
+                <strong>Estrategia recomendada:</strong><br>
+                - Plataforma: ${platform}<br>
+                - Objetivo: ${goal}<br>
+                - Presupuesto: €${budget.toFixed(2)}<br>
+                <strong>Siguiente paso:</strong> ${adsRecommendation}<br>
+                Considera medir el rendimiento semanalmente para ajustar tu estrategia según los resultados.
+            `;
+        }
+    </script>
+</body>
+</html>
